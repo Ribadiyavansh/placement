@@ -1,0 +1,84 @@
+Login Attempt:
+Email: 'admin@placement.com'
+Pass: 'admin123'
+User Found: Yes
+Hash: \/3.aKHP8jz5PT2O/RyThQoasE2YiVfgYkhuTt.plI2K/ci
+Verify: False
+Login Attempt:
+Email: 'admin@placement.com'
+Pass: 'admin123'
+User Found: Yes
+Hash: \/3.aKHP8jz5PT2O/RyThQoasE2YiVfgYkhuTt.plI2K/ci
+Verify: False
+Login Attempt:
+Email: 'admin@placement.com'
+Pass: 'admin123'
+User Found: Yes
+Hash: \/3.aKHP8jz5PT2O/RyThQoasE2YiVfgYkhuTt.plI2K/ci
+Verify: False
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: 'vansh'
+User Found: Yes
+Hash: $2y$10$YzfS4yB8R/5Ym3Ix8.KzcObn8jF3J/DJepopfU/3en/y.GVmKT5BW
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: 'vansh'
+User Found: Yes
+Hash: $2y$10$YzfS4yB8R/5Ym3Ix8.KzcObn8jF3J/DJepopfU/3en/y.GVmKT5BW
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: 'vansh'
+User Found: Yes
+Hash: $2y$10$YzfS4yB8R/5Ym3Ix8.KzcObn8jF3J/DJepopfU/3en/y.GVmKT5BW
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: 'vansh'
+User Found: Yes
+Hash: $2y$10$YzfS4yB8R/5Ym3Ix8.KzcObn8jF3J/DJepopfU/3en/y.GVmKT5BW
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: 'vansh'
+User Found: Yes
+Hash: $2y$10$YzfS4yB8R/5Ym3Ix8.KzcObn8jF3J/DJepopfU/3en/y.GVmKT5BW
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: 'vansh'
+User Found: Yes
+Hash: $2y$10$YzfS4yB8R/5Ym3Ix8.KzcObn8jF3J/DJepopfU/3en/y.GVmKT5BW
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: 'vansh'
+User Found: Yes
+Hash: $2y$10$YzfS4yB8R/5Ym3Ix8.KzcObn8jF3J/DJepopfU/3en/y.GVmKT5BW
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: 'vansh'
+User Found: Yes
+Hash: $2y$10$YzfS4yB8R/5Ym3Ix8.KzcObn8jF3J/DJepopfU/3en/y.GVmKT5BW
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: 'vansh'
+User Found: Yes
+Hash: $2y$10$YzfS4yB8R/5Ym3Ix8.KzcObn8jF3J/DJepopfU/3en/y.GVmKT5BW
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: 'vansh'
+User Found: Yes
+Hash: $2y$10$YzfS4yB8R/5Ym3Ix8.KzcObn8jF3J/DJepopfU/3en/y.GVmKT5BW
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
