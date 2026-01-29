@@ -232,3 +232,9 @@ Pass: '123'
 User Found: Yes
 Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
 Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
