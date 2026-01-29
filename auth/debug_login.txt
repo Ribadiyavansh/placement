@@ -82,3 +82,153 @@ Pass: '123'
 User Found: Yes
 Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
 Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
+Login Attempt:
+Email: 'student@test.com'
+Pass: 'password123'
+User Found: No
+Hash: N/A
+Verify: False
+Login Attempt:
+Email: 'student@test.com'
+Pass: 'password123'
+User Found: Yes
+Hash: $2y$10$lCjFFq.l/XHi3xaY7qtdMelIkcmdydJ4JTH1Rx3TcJIu.0sR/n2zy
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
+Login Attempt:
+Email: 'student@test.com'
+Pass: 'admin123'
+User Found: Yes
+Hash: $2y$10$lCjFFq.l/XHi3xaY7qtdMelIkcmdydJ4JTH1Rx3TcJIu.0sR/n2zy
+Verify: False
+Login Attempt:
+Email: 'student@test.com'
+Pass: 'password'
+User Found: Yes
+Hash: $2y$10$lCjFFq.l/XHi3xaY7qtdMelIkcmdydJ4JTH1Rx3TcJIu.0sR/n2zy
+Verify: False
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
+Login Attempt:
+Email: 'student@test.com'
+Pass: 'admin123admin123'
+User Found: Yes
+Hash: $2y$10$lCjFFq.l/XHi3xaY7qtdMelIkcmdydJ4JTH1Rx3TcJIu.0sR/n2zy
+Verify: False
+Login Attempt:
+Email: 'student@test.com'
+Pass: 'password'
+User Found: Yes
+Hash: $2y$10$lCjFFq.l/XHi3xaY7qtdMelIkcmdydJ4JTH1Rx3TcJIu.0sR/n2zy
+Verify: False
+Login Attempt:
+Email: 'student@test.com'
+Pass: 'admin123'
+User Found: Yes
+Hash: $2y$10$lCjFFq.l/XHi3xaY7qtdMelIkcmdydJ4JTH1Rx3TcJIu.0sR/n2zy
+Verify: False
+Login Attempt:
+Email: 'student@test.com'
+Pass: 'password'
+User Found: Yes
+Hash: $2y$10$lCjFFq.l/XHi3xaY7qtdMelIkcmdydJ4JTH1Rx3TcJIu.0sR/n2zy
+Verify: False
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True
+Login Attempt:
+Email: 'v@gmail.com'
+Pass: '123'
+User Found: Yes
+Hash: $2y$10$fdsxFHujLJsP.typR7cutOgZlceUg77c6ZRerCzkIj0ba21eepGqG
+Verify: True

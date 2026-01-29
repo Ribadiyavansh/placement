@@ -63,6 +63,9 @@ $applications = $stmt->fetchAll();
                 <a href="my_applications.php" class="nav-link active">
                     <i class="fas fa-file-alt"></i> My Applications
                 </a>
+                <a href="resume_builder.php" class="nav-link">
+                    <i class="fas fa-file-invoice"></i> Resume Builder
+                </a>
                 <a href="profile.php" class="nav-link">
                     <i class="fas fa-user"></i> Profile
                 </a>
@@ -77,7 +80,7 @@ $applications = $stmt->fetchAll();
         <!-- Main Content -->
         <main class="main-content">
             <header class="header">
-                 <h1 class="page-title">My Applications</h1>
+                 <h1 class="page-title"><i class="fas fa-file-alt"></i> My Applications</h1>
             </header>
 
             <?php if (isset($_SESSION['message'])): ?>

@@ -42,10 +42,8 @@ CREATE TABLE IF NOT EXISTS `resume_skills` (
     `skill_name` VARCHAR(100) NOT NULL,
     `type` ENUM('Technical', 'Soft') DEFAULT 'Technical',
     `proficiency` ENUM('Beginner', 'Intermediate', 'Advanced') DEFAULT 'Intermediate',
-    UNIQUE KEY `unique_skill_user` (`user_id`, `skill_name`),
     FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
 );
-
 
 -- E. Certifications
 CREATE TABLE IF NOT EXISTS `resume_certifications` (
@@ -104,10 +102,8 @@ CREATE TABLE IF NOT EXISTS `resume_languages` (
     `user_id` INT NOT NULL,
     `language` VARCHAR(50) NOT NULL,
     `proficiency` ENUM('Read', 'Write', 'Speak', 'All') DEFAULT 'All',
-    UNIQUE KEY unique_language_user (`user_id`, `language`),
     FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
 );
-
 
 -- K. Placement Eligibility Data
 CREATE TABLE IF NOT EXISTS `placement_eligibility` (

@@ -59,6 +59,9 @@ try {
                 <a href="my_applications.php" class="nav-link">
                     <i class="fas fa-file-alt"></i> My Applications
                 </a>
+                <a href="resume_builder.php" class="nav-link">
+                    <i class="fas fa-file-invoice"></i> Resume Builder
+                </a>
                 <a href="profile.php" class="nav-link">
                     <i class="fas fa-user"></i> Profile
                 </a>

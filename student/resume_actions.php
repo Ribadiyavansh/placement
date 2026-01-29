@@ -14,93 +14,10 @@ try {
     switch ($action) {
         // Personal Information
         case 'save_personal':
-            $gender = $_POST['gender'] ?? null;
-            $dob = $_POST['dob'] ?? null;
-            $phone = trim($_POST['phone'] ?? '');
-            $alternate_email = trim($_POST['alternate_email'] ?? '');
-            $address = trim($_POST['address'] ?? '');
-            $linkedin_url = trim($_POST['linkedin_url'] ?? '');
-            $github_url = trim($_POST['github_url'] ?? '');
-            $portfolio_url = trim($_POST['portfolio_url'] ?? '');
-            $summary = trim($_POST['summary'] ?? '');
-
-            // Personal validations A
-            if (!empty($phone) && !preg_match('/^[0-9]{10,15}$/', $phone)) {
-                $_SESSION['error'] = "Phone must be 10-15 numeric digits only.";
-                header("Location: resume_builder.php?tab=personal");
-                exit();
-            }
-            if (!empty($alternate_email) && !filter_var($alternate_email, FILTER_VALIDATE_EMAIL)) {
-                $_SESSION['error'] = "Alternate email must be valid format.";
-                header("Location: resume_builder.php?tab=personal");
-                exit();
-            }
-            if (!empty($linkedin_url) && !preg_match('/^https?:\/\//i', $linkedin_url)) {
-                $_SESSION['error'] = "LinkedIn URL must start with http:// or https://.";
-                header("Location: resume_builder.php?tab=personal");
-                exit();
-            }
-            if (!empty($github_url) && !preg_match('/^https?:\/\//i', $github_url)) {
-                $_SESSION['error'] = "GitHub URL must start with http:// or https://.";
-                header("Location: resume_builder.php?tab=personal");
-                exit();
-            }
-            if (!empty($portfolio_url) && !preg_match('/^https?:\/\//i', $portfolio_url)) {
-                $_SESSION['error'] = "Portfolio URL must start with http:// or https://.";
-                header("Location: resume_builder.php?tab=personal");
-                exit();
-            }
-            if (!empty($dob)) {
-                $birth = new DateTime($dob);
-                $today = new DateTime();
-                $age = $today->diff($birth)->y;
-                if ($age < 16 || $age > 60) {
-                    $_SESSION['error'] = "Age must be between 16 and 60 years.";
-                    header("Location: resume_builder.php?tab=personal");
-                    exit();
-                }
-            }
-            if (strlen($summary) < 50 || strlen($summary) > 500) {
-                $_SESSION['error'] = "Summary must be 50-500 characters.";
-                header("Location: resume_builder.php?tab=personal");
-                exit();
-            }
-
-            // Profile photo upload GV8 GV7 A.profile_photo
-            $profile_photo = null;
-            if (isset($_FILES['profile_photo']) && $_FILES['profile_photo']['error'] === UPLOAD_ERR_OK) {
-                if ($_FILES['profile_photo']['size'] > 1 * 1024 * 1024) {
-                    $_SESSION['error'] = "Profile photo must be less than 1MB.";
-                    header("Location: resume_builder.php?tab=personal");
-                    exit();
-                }
-                $exts = ['jpg', 'jpeg', 'png'];
-                $ext = strtolower(pathinfo($_FILES['profile_photo']['name'], PATHINFO_EXTENSION));
-                if (!in_array($ext, $exts)) {
-                    $_SESSION['error'] = "Profile photo must be JPG/JPEG or PNG.";
-                    header("Location: resume_builder.php?tab=personal");
-                    exit();
-                }
-                $upload_dir = '../assets/uploads/profiles/';
-                if (!is_dir($upload_dir)) {
-                    mkdir($upload_dir, 0777, true);
-                }
-                $filename = $user_id . '_' . time() . '.' . $ext;
-                $full_path = $upload_dir . $filename;
-                if (move_uploaded_file($_FILES['profile_photo']['tmp_name'], $full_path)) {
-                    $profile_photo = 'assets/uploads/profiles/' . $filename;
-                } else {
-                    $_SESSION['error'] = "Failed to upload profile photo.";
-                    header("Location: resume_builder.php?tab=personal");
-                    exit();
-                }
-            }
-
             $stmt = $conn->prepare("
-                INSERT INTO resume_personal (user_id, profile_photo, gender, dob, phone, alternate_email, address, linkedin_url, github_url, portfolio_url, summary)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT INTO resume_personal (user_id, gender, dob, phone, alternate_email, address, linkedin_url, github_url, portfolio_url, summary)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON DUPLICATE KEY UPDATE
-                profile_photo = VALUES(profile_photo),
                 gender = VALUES(gender),
                 dob = VALUES(dob),
                 phone = VALUES(phone),
@@ -113,81 +30,39 @@ try {
             ");
             $stmt->execute([
                 $user_id,
-                $profile_photo,
-                $gender,
-                $dob,
-                $phone,
-                $alternate_email,
-                $address,
-                $linkedin_url,
-                $github_url,
-                $portfolio_url,
-                $summary
+                $_POST['gender'] ?? null,
+                $_POST['dob'],
+                $_POST['phone'],
+                $_POST['alternate_email'] ?? null,
+                $_POST['address'],
+                $_POST['linkedin_url'] ?? null,
+                $_POST['github_url'] ?? null,
+                $_POST['portfolio_url'] ?? null,
+                $_POST['summary']
             ]);
             $_SESSION['success'] = "Personal information saved successfully!";
             break;
 
-
         // Education
         case 'add_education':
-            // EDU validations B
-            $count_stmt = $conn->prepare("SELECT COUNT(*) FROM resume_education WHERE user_id = ?");
-            $count_stmt->execute([$user_id]);
-            if ($count_stmt->fetchColumn() >= 5) {
-                $_SESSION['error'] = "Maximum 5 education entries allowed (EDU4).";
-                header("Location: resume_builder.php?tab=education");
-                exit();
-            }
-
-            $degree = trim($_POST['degree'] ?? '');
-            $institution = trim($_POST['institution'] ?? '');
-            if (empty($degree) || empty($institution)) {
-                $_SESSION['error'] = "Degree and Institution cannot be empty (EDU5).";
-                header("Location: resume_builder.php?tab=education");
-                exit();
-            }
-
-            $start_year = (int)$_POST['start_year'];
-            $end_year = (int)$_POST['end_year'];
-            if ($start_year > $end_year) {
-                $_SESSION['error'] = "Start year must be <= end year (EDU1).";
-                header("Location: resume_builder.php?tab=education");
-                exit();
-            }
-
-            $percentage_cgpa = (float)$_POST['percentage_cgpa'];
-            if ($percentage_cgpa < 0 || $percentage_cgpa > 100) {
-                $_SESSION['error'] = "Percentage/CGPA must be between 0 and 100 (EDU2).";
-                header("Location: resume_builder.php?tab=education");
-                exit();
-            }
-
-            $backlogs = (int)($_POST['backlogs'] ?? 0);
-            if ($backlogs < 0) {
-                $_SESSION['error'] = "Backlogs must be >= 0 (EDU3).";
-                header("Location: resume_builder.php?tab=education");
-                exit();
-            }
-
             $stmt = $conn->prepare("
                 INSERT INTO resume_education (user_id, degree, specialization, institution, university_board, start_year, end_year, percentage_cgpa, backlogs, current_status)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ");
             $stmt->execute([
                 $user_id,
-                $degree,
-                $_POST['specialization'] ?? '',
-                $institution,
-                trim($_POST['university_board'] ?? ''),
-                $start_year,
-                $end_year,
-                $percentage_cgpa,
-                $backlogs,
-                $_POST['current_status'] ?? 'Completed'
+                $_POST['degree'],
+                $_POST['specialization'],
+                $_POST['institution'],
+                $_POST['university_board'],
+                $_POST['start_year'],
+                $_POST['end_year'],
+                $_POST['percentage_cgpa'],
+                $_POST['backlogs'] ?? 0,
+                $_POST['current_status']
             ]);
             $_SESSION['success'] = "Education added successfully!";
             break;
-
 
         case 'delete_education':
             $stmt = $conn->prepare("DELETE FROM resume_education WHERE id = ? AND user_id = ?");
@@ -408,37 +283,42 @@ exit();
 function updateResumeScore($conn, $user_id) {
     $score = 0;
     
-    // Personal Info 20%
+    // Personal Info (15%)
     $stmt = $conn->prepare("SELECT COUNT(*) FROM resume_personal WHERE user_id = ?");
+    $stmt->execute([$user_id]);
+    if ($stmt->fetchColumn() > 0) $score += 15;
+    
+    // Education (20%)
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM resume_education WHERE user_id = ?");
     $stmt->execute([$user_id]);
     if ($stmt->fetchColumn() > 0) $score += 20;
     
-    // Education 20% >=1
-    $stmt = $conn->prepare("SELECT COUNT(*) FROM resume_education WHERE user_id = ?");
-    $stmt->execute([$user_id]);
-    if ($stmt->fetchColumn() >= 1) $score += 20;
-    
-    // Skills 20% >=3
+    // Skills (15%)
     $stmt = $conn->prepare("SELECT COUNT(*) FROM resume_skills WHERE user_id = ?");
     $stmt->execute([$user_id]);
-    if ($stmt->fetchColumn() >= 3) $score += 20;
+    if ($stmt->fetchColumn() >= 5) $score += 15;
     
-    // Projects 15% >=1
+    // Projects (20%)
     $stmt = $conn->prepare("SELECT COUNT(*) FROM resume_projects WHERE user_id = ?");
     $stmt->execute([$user_id]);
-    if ($stmt->fetchColumn() >= 1) $score += 15;
+    if ($stmt->fetchColumn() >= 2) $score += 20;
     
-    // Experience 15% >=1
+    // Experience (15%)
     $stmt = $conn->prepare("SELECT COUNT(*) FROM resume_experience WHERE user_id = ?");
     $stmt->execute([$user_id]);
     if ($stmt->fetchColumn() >= 1) $score += 15;
     
-    // Certifications/Achievements 10% >=1 combined
-    $stmt = $conn->prepare("SELECT (SELECT COUNT(*) FROM resume_certifications WHERE user_id = ?) + (SELECT COUNT(*) FROM resume_achievements WHERE user_id = ?) as total");
-    $stmt->execute([$user_id, $user_id]);
+    // Certifications (10%)
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM resume_certifications WHERE user_id = ?");
+    $stmt->execute([$user_id]);
     if ($stmt->fetchColumn() >= 1) $score += 10;
     
-    // Update score
+    // Eligibility (5%)
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM placement_eligibility WHERE user_id = ?");
+    $stmt->execute([$user_id]);
+    if ($stmt->fetchColumn() > 0) $score += 5;
+    
+    // Update score in placement_eligibility table
     $stmt = $conn->prepare("
         INSERT INTO placement_eligibility (user_id, resume_score)
         VALUES (?, ?)
@@ -446,5 +326,4 @@ function updateResumeScore($conn, $user_id) {
     ");
     $stmt->execute([$user_id, $score]);
 }
-
 ?>
